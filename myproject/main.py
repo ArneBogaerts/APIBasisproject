@@ -44,3 +44,19 @@ def read_reviews_by_cd(cd_id: int, skip: int = 0, limit: int = 10, db: Session =
     if reviews is None:
         raise HTTPException(status_code=404, detail="Reviews not found")
     return reviews
+
+@app.delete("/cds/{cd_id}", response_model=schemas.CD)
+def delete_cd(cd_id: int, db: Session = Depends(get_db)):
+    db_cd = crud.get_cd(db, cd_id=cd_id)
+    if db_cd is None:
+        raise HTTPException(status_code=404, detail="CD not found")
+    crud.delete_cd(db, cd_id=cd_id)
+    return db_cd
+
+@app.delete("/artists/{artist_id}", response_model=schemas.Artist)
+def delete_artist(artist_id: int, db: Session = Depends(get_db)):
+    db_artist = crud.delete_artist(db, artist_id=artist_id)
+    if not db_artist:
+        raise HTTPException(status_code=404, detail="Artist not found")
+    return db_artist
+

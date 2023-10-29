@@ -11,7 +11,7 @@ class Artist(ArtistBase):
 
 class CDCreate(BaseModel):
     title: str
-    artist_id: int
+    artist_name: str
 
 class CD(CDCreate):
     id: int
