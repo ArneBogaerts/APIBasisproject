@@ -13,7 +13,7 @@ class CD(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String, index=True)
     artist_id = Column(Integer, ForeignKey("artists.id"))
-    artist = relationship("Artist", back_populates="albums")
+    artist = relationship("Artist", back_populates="albums", lazy='joined')
     reviews = relationship("Review", back_populates="cd")
 
 class Review(Base):
