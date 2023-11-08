@@ -67,3 +67,5 @@ Pull requests zijn welkom. Voor grote wijzigingen, open eerst een issue om te be
 Licentie
 
 MIT
+
+![Screenshot1](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/34a35dfd-04bc-4840-a997-a64e62e2519a)
