@@ -21,8 +21,8 @@ def create_artist(db: Session, artist: schemas.ArtistBase):
     db.refresh(db_artist)
     return db_artist
 
-def get_reviews_by_cd(db: Session, cd_id: int):
-    return db.query(models.Review).filter(models.Review.cd_id == cd_id).all()
+def get_reviews_by_cd(db: Session, cd_id: int, skip: int = 0, limit: int = 10):
+    return db.query(models.Review).filter(models.Review.cd_id == cd_id).offset(skip).limit(limit)
 
 def create_review(db: Session, review: schemas.ReviewCreate):
     db_review = models.Review(**review.dict())
@@ -57,3 +57,19 @@ def delete_artist(db: Session, artist_id: int):
         return db_artist
     return None
 
+def delete_artist_by_name(db: Session, name: str):
+    db_artist = db.query(models.Artist).filter(models.Artist.name == name).first()
+    if db_artist:
+        db.delete(db_artist)
+        db.commit()
+        return db_artist
+    return None
+
+def delete_cd_by_title(db: Session, title: str):
+    db_cd = db.query(models.CD).filter(models.CD.title == title).first()
+    if db_cd:
+        db.query(models.Review).filter(models.Review.cd_id == db_cd.id).delete()
+        db.delete(db_cd)
+        db.commit()
+        return db_cd
+    return False
