@@ -8,15 +8,14 @@ services:
     depends_on:
       - db
     environment:
-      - SQLALCHEMY_DATABASE_URL=mysql://user:password@db:3306/cd_database
-
+      - SQLALCHEMY_DATABASE_URL=mysql+pymysql://ArneCD:CDstoreArne@db/cdstoredb
   db:
     image: mysql:5.7
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: cd_database
-      MYSQL_USER: user
-      MYSQL_PASSWORD: password
+      MYSQL_ROOT_PASSWORD: some-root-password
+      MYSQL_DATABASE: cdstoredb
+      MYSQL_USER: ArneCD
+      MYSQL_PASSWORD: CDstoreArne
     volumes:
       - mysql-data:/var/lib/mysql
 
