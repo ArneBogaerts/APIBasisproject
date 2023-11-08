@@ -1,3 +1,4 @@
+from fastapi import HTTPException
 from sqlalchemy.orm import Session
 import models, schemas
 
@@ -33,7 +34,7 @@ def create_review(db: Session, review: schemas.ReviewCreate):
 def create_cd(db: Session, cd: schemas.CDCreate):
     artist = db.query(models.Artist).filter(models.Artist.name == cd.artist_name).first()
     if not artist:
-        raise ValueError(f"Artist with name {cd.artist_name} not found.")
+        raise HTTPException(status_code=404, detail=f"Artist with name {cd.artist_name} not found")
     db_cd = models.CD(title=cd.title, artist_id=artist.id)
     db.add(db_cd)
     db.commit()

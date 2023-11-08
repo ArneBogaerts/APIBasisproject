@@ -9,12 +9,14 @@ class Artist(ArtistBase):
     class Config:
         orm_mode = True
 
-class CDCreate(BaseModel):
+class CDbase(BaseModel):
     title: str
+class CDCreate(CDbase):
     artist_name: str
 
-class CD(CDCreate):
+class CD(CDbase):
     id: int
+    artist: Artist
     class Config:
         orm_mode = True
 
