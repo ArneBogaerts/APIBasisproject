@@ -28,7 +28,7 @@ Bekijken van Reviews: Reviews kunnen per cd bekeken worden.
 
 De API is zo ontworpen dat het eenvoudig is voor gebruikers om de informatie te beheren via een reeks van HTTP-verzoeken, waardoor het een flexibele tool is voor muziekliefhebbers of verzamelaars. De nadruk ligt op gebruiksgemak en het waarborgen van de integriteit van de gegevens bij elke bewerking.
 
-De link naar mijn eigen gehoste API kan je hieronder terugvinden:
+De link naar mijn eigen gehoste API kan je hier terugvinden:
 https://api-arnebogaerts.cloud.okteto.net/docs#/
 
 ![Screenshot1](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/34a35dfd-04bc-4840-a997-a64e62e2519a)
