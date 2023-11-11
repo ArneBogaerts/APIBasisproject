@@ -216,7 +216,7 @@ Dit endpoint stelt gebruikers in staat om een specifieke CD uit de database te v
 
 ## ENDPOINT: DELETE /artists/{artist_id}
 
-Dit endpoint stelt gebruikers in staat om een artiest uit de database te verwijderen op basis van het unieke **artist_id**. Het wordt gebruikt voor het beheer van de artiestengegevens in de database, waaronder het verwijderen van artiesten die niet langer relevant zijn of waarvan de gegevens niet meer kloppen.
+Dit endpoint stelt gebruikers in staat om een artiest uit de database te verwijderen op basis van het unieke **artist_id**. Het wordt gebruikt voor het beheer van de artiestengegevens in de database, waaronder het verwijderen van artiesten die niet langer relevant zijn of waarvan de gegevens niet meer kloppen. Bij het verwijderen van een artiest, worden ook gelijk alle bijhorende cd's en de daarbijhorende reviews verwijderd.
 
 ![DELETE ARTIST](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/a6326eb2-45ef-4839-b9cd-6944525df085)
 ![DELETE ARTIST notfound](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/97637d8b-dc8d-41a0-87cf-1f98757177c2)
@@ -224,7 +224,7 @@ Dit endpoint stelt gebruikers in staat om een artiest uit de database te verwijd
 ### Data verwijderen:
 
 * Bij een DELETE-verzoek gebruikt het endpoint de artist_id parameter in de URL om de overeenkomstige artiest in de database te lokaliseren.
-* Als de artiest wordt gevonden, wordt deze, samen met alle bijbehorende gegevens, verwijderd uit de database.
+* Als de artiest wordt gevonden, wordt deze, samen met alle bijbehorende gegevens (gerelateerde CD's en de daarbijhorende reviews), verwijderd uit de database.
 * Als de artiest niet wordt gevonden, geeft het endpoint een 404-foutmelding met de boodschap **Artist not found** terug, wat aangeeft dat de artiest niet bestaat of al verwijderd is.
 
 ### Response:
@@ -239,7 +239,7 @@ Dit endpoint stelt gebruikers in staat om een artiest uit de database te verwijd
 
 ## ENDPOINT DELETE: /artists/by-name/{artist_name}
 
-Dit endpoint stelt gebruikers in staat om een artiest uit de database te verwijderen op basis van de naam van de parameter **artist_name**. Dit is handig in situaties waar de unieke ID van de artiest niet bekend is, maar de naam wel.
+Dit endpoint stelt gebruikers in staat om een artiest uit de database te verwijderen op basis van de naam van de parameter **artist_name**. Dit is handig in situaties waar de unieke ID van de artiest niet bekend is, maar de naam wel. Bij het verwijderen van een artiest, worden ook gelijk alle bijhorende cd's en de daarbijhorende reviews verwijderd.
 
 ![DELETE ARTIST on name](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/34cd5b2a-181f-4c65-8f55-5d6dda50f3bd)
 ![DELETE ARTIST on name notfound](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/89a7a2c2-aa88-44e4-af72-9fc9cfba8e76)
@@ -247,7 +247,7 @@ Dit endpoint stelt gebruikers in staat om een artiest uit de database te verwijd
 ### Data verwijderen:
 
 * Bij een DELETE-verzoek gebruikt het endpoint de **artist_name** parameter in de URL om de overeenkomstige artiest in de database te vinden.
-* Als de artiest met de opgegeven naam wordt gevonden, wordt deze verwijderd uit de database.
+* Als de artiest met de opgegeven naam wordt gevonden, wordt deze verwijderd uit de database. Ook de daarbijhorende gegevens (gerelateerde CD's en de daarbijhorende reviews) worden hierdoor mee verwijderd.
 * Als er geen artiest met die naam wordt gevonden, geeft het endpoint een 404-foutmelding, **Artist not found** terug, wat aangeeft dat de artiest niet bestaat onder de opgegeven naam.
 
 ### Response:
