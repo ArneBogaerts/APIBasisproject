@@ -22,6 +22,9 @@ def get_reviews_by_cd(db: Session, cd_id: int, skip: int = 0, limit: int = 10):
     return db.query(models.Review).filter(models.Review.cd_id == cd_id).offset(skip).limit(limit)
 
 def create_review(db: Session, review: schemas.ReviewCreate):
+    cd_exists = db.query(models.CD).filter(models.CD.id == review.cd_id).first()
+    if not cd_exists:
+        raise HTTPException(status_code=404, detail="CD not found, try another CD-ID")
     db_review = models.Review(**review.dict())
     db.add(db_review)
     db.commit()
