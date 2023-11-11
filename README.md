@@ -107,17 +107,52 @@ Dit endpoint biedt toegang tot de lijst van artiesten in de database. Het stelt 
 ![GET artists](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/d3ea5ca1-bc53-498e-be96-9ca414f33f30)
 
 
-## Data ophalen:
+### Data ophalen:
 
 * Bij een GET-verzoek worden alle artiesten uit de database opgehaald, waarbij de skip en limit parameters worden toegepast. Deze parameters bepalen respectievelijk het aantal over te slagen records en het maximale aantal terug te geven records.
 * Standaard worden er geen records overgeslagen (skip=0) en worden de eerste 10 artiesten teruggegeven (limit=10). Deze standaardwaarden kunnen echter door de gebruiker worden aangepast.
 
-## Response:
+### Response:
 
 * De response bestaat uit een lijst van artiesten (objecten). Elk van deze artiesten (objecten) bevatten gegevens zoals de ID en naam van de artiest.
 * Deze informatie is nuttig voor gebruikers die willen weten welke artiesten in de database zijn geregistreerd.
 
-## Gebruik:
+### Gebruik:
 
 * Om de eerste 10 artiesten op te halen: **GET /artists/**
 * Om bijvoorbeeld artiesten 11-20 op te halen: **GET /artist/?skip=10&limit=10**
+
+## ENDPOINT: POST /artist/
+
+Dit endpoint maakt het mogelijk om een nieuwe artiest toe te voegen aan de database. Het is ontworpen om de lijst van artiesten in de database uit te breiden.
+
+![POST artist](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/653fcbe8-1913-4a64-b367-e840e70732a1)
+
+### Data toevoegen:
+
+* Bij een POST-verzoek ontvangt het endpoint gegevens van een nieuwe artiest, de naam.
+* Deze informatie wordt gebruikt om een nieuw artiest-object in de database aan te maken.
+* Het is belangrijk dat de naam van de artiest uniek is om duplicaten in de database te voorkomen.
+
+### Request:
+
+Het verzoek verwacht de volgende informatie in JSON-formaat:
+
+* **name**: De naam van de artiest.
+
+### Response:
+
+* De response bevat de gegevens van de nieuw toegevoegde artiest, inclusief het unieke ID dat de database zelf toekent.
+* Dit bevestigd de succesvolle toevoeging van de artiest aan de database.
+
+## ENDPOINT POST /reviews/: 
+
+Dit endpoint stelt gebruikers in staat om een nieuwe recensie voor een specifieke CD toe te voegen aan de database op basis van cd-id. Het is een essentieel onderdeel van de functionaliteit voor gebruikersfeedback.
+
+![post review](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/6182b0ec-4ec5-4985-9b12-e8100c0fbe80)
+
+### Data toevoegen:
+
+* Bij een POST-verzoek ontvangt het endpoint gegevens over een nieuwe recensie, waaronder de beoordeling, het commentaar en de ID van de CD waarop de review betrekking heeft.
+* Het systeem controleert eerst of de gespecifieerde CD in de database bestaat. Als dit niet het geval is, wordt een 404-foutmelding teruggestuurd, wat aangeeft dat de opgegeven CD niet gevonden kan worden.
+* Als de CD wel bestaat, wordt de nieuwe recensie gecreëerd en aan de database toegevoegd met de meegegeven gegevens.
