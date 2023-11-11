@@ -1,10 +1,10 @@
-Thema van de API: Muziekcollectie Beheer
+#Thema van de API: Muziekcollectie Beheer
 
 Deze API stelt gebruikers in staat om een digitale catalogus van cd's bij te houden. De gebruikers kunnen informatie over artiesten en cd's toevoegen, bekijken en verwijderen. Daarnaast is het mogelijk om beoordelingen (reviews) en commentaren over individuele cd's toe te voegen en te raadplegen.
 
-Belangrijkste Functionaliteiten:
+##Belangrijkste Functionaliteiten:
 
-Artiesten Beheer:
+###Artiesten Beheer:
 
 Toevoegen van Artiesten: Gebruikers kunnen nieuwe artiesten aan de database toevoegen door hun naam, genre en andere relevante details op te geven.
 
