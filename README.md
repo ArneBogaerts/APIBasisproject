@@ -104,7 +104,7 @@ De response bevat de gegevens van de nieuw toegevoegde CD, inclusief het unieke 
 
 Dit endpoint biedt toegang tot de lijst van artiesten in de database. Het stelt gebruikers in staat om informatie over alle geregistreerde artiesten op te halen.
 
-![GET artists](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/d3ea5ca1-bc53-498e-be96-9ca414f33f30)
+![GET artists](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/0e1d3bec-1c38-4bc6-a501-6b5fc8b49f37)
 
 
 ### Data ophalen:
@@ -150,6 +150,7 @@ Het verzoek verwacht de volgende informatie in JSON-formaat:
 Dit endpoint stelt gebruikers in staat om een nieuwe recensie voor een specifieke CD toe te voegen aan de database op basis van cd-id. Het is een essentieel onderdeel van de functionaliteit voor gebruikersfeedback.
 
 ![post review](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/6182b0ec-4ec5-4985-9b12-e8100c0fbe80)
+![post review fout](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/bcfaa8b9-df54-403a-9efb-d7634d195e6e)
 
 ### Data toevoegen:
 
