@@ -60,6 +60,8 @@ Onderaan deze set foto's van mijn API, laat ik per endpoint kort zien hoe ze wer
 Dit endpoint haalt een lijst van CD's op uit de database. Het is ontworpen om op een handige manier toegang te geven tot de gehele collectie van CD's.
 
 ![GET cds](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/fe1b188a-ac33-4813-b93e-10c86fce2a6e)
+![GET cds skiplimit](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/2fee1cd4-5f51-471b-9b5b-17f494fdd187)
+
 
 ### Data ophalen:
 
@@ -98,4 +100,24 @@ Het POST request moet de volgende gegevens bevatten in JSON-formaat:
 
 De response bevat de gegevens van de nieuw toegevoegde CD, inclusief het unieke ID dat door de database is toegekend. Dat wil zeggen de titel van het album en het album ID, alsook de gekoppelde artist met zijn ID.
 
+## ENDPOINT: GET /artists/
 
+Dit endpoint biedt toegang tot de lijst van artiesten in de database. Het stelt gebruikers in staat om informatie over alle geregistreerde artiesten op te halen.
+
+![GET artists](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/d3ea5ca1-bc53-498e-be96-9ca414f33f30)
+
+
+## Data ophalen:
+
+* Bij een GET-verzoek worden alle artiesten uit de database opgehaald, waarbij de skip en limit parameters worden toegepast. Deze parameters bepalen respectievelijk het aantal over te slagen records en het maximale aantal terug te geven records.
+* Standaard worden er geen records overgeslagen (skip=0) en worden de eerste 10 artiesten teruggegeven (limit=10). Deze standaardwaarden kunnen echter door de gebruiker worden aangepast.
+
+## Response:
+
+* De response bestaat uit een lijst van artiesten (objecten). Elk van deze artiesten (objecten) bevatten gegevens zoals de ID en naam van de artiest.
+* Deze informatie is nuttig voor gebruikers die willen weten welke artiesten in de database zijn geregistreerd.
+
+## Gebruik:
+
+* Om de eerste 10 artiesten op te halen: **GET /artists/**
+* Om bijvoorbeeld artiesten 11-20 op te halen: **GET /artist/?skip=10&limit=10**
