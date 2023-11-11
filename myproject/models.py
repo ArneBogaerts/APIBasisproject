@@ -6,7 +6,7 @@ class Artist(Base):
     __tablename__ = "artists"
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String(255), index=True)
-    albums = relationship("CD", back_populates="artist")
+    albums = relationship("CD", back_populates="artist", cascade="all, delete-orphan")
 
 class CD(Base):
     __tablename__ = "cds"
@@ -14,7 +14,7 @@ class CD(Base):
     title = Column(String(255), index=True)
     artist_id = Column(Integer, ForeignKey("artists.id"))
     artist = relationship("Artist", back_populates="albums", lazy='joined')
-    reviews = relationship("Review", back_populates="cd")
+    reviews = relationship("Review", back_populates="cd", cascade="all, delete-orphan")
 
 class Review(Base):
     __tablename__ = "reviews"
