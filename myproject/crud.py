@@ -6,14 +6,12 @@ def get_cd(db: Session, cd_id: int):
     return db.query(models.CD).filter(models.CD.id == cd_id).first()
 
 def get_cds(db: Session, skip: int = 0, limit: int = 100):
-    return db.query(models.CD).offset(skip).limit(limit).all()
-
+    return db.query(models.CD).order_by(models.CD.id).offset(skip).limit(limit).all()
 def get_artist(db: Session, artist_id: int):
     return db.query(models.Artist).filter(models.Artist.id == artist_id).first()
 
 def get_artists(db: Session, skip: int = 0, limit: int = 100):
-    return db.query(models.Artist).offset(skip).limit(limit).all()
-
+    return db.query(models.Artist).order_by(models.Artist.id).offset(skip).limit(limit).all()
 def create_artist(db: Session, artist: schemas.ArtistBase):
     db_artist = models.Artist(**artist.dict())
     db.add(db_artist)
