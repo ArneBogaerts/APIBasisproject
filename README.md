@@ -86,3 +86,16 @@ Dit endpoint maakt het mogelijk om een nieuwe CD toe te voegen aan de database. 
 * Bij een POST-verzoek ontvangt het endpoint gegevens over een nieuwe CD, waaronder de titel en de naam van de artiest.
 * De API zoekt eerst naar de artiest in de database. Als de artiest niet gevonden wordt, geeft het een **404-foutmelding** terug met de melding dat de artiest niet gevonden is.
 * Als de artiest wel bestaat, wordt de nieuwe cd aangemaakt en aan de database toegevoegd met de meegegeven titel en de ID van de gevonden artiest.
+
+### Request:
+
+Het POST request moet de volgende gegevens bevatten in JSON-formaat:
+
+* **title**: De titel van de CD.
+* **artist_name**: De naam van de artiest van de CD.
+
+### Response:
+
+De response bevat de gegevens van de nieuw toegevoegde CD, inclusief het unieke ID dat door de database is toegekend. Dat wil zeggen de titel van het album en het album ID, alsook de gekoppelde artist met zijn ID.
+
+
