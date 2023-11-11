@@ -237,7 +237,7 @@ Dit endpoint stelt gebruikers in staat om een artiest uit de database te verwijd
 
 * Om een artiest met een specifiek ID te verwijderen: **DELETE /artists/{artist_id}**
 
-## ENDPOINT DELETE: /artists/by-name/{artist_name}
+## ENDPOINT: DELETE /artists/by-name/{artist_name}
 
 Dit endpoint stelt gebruikers in staat om een artiest uit de database te verwijderen op basis van de naam van de parameter **artist_name**. Dit is handig in situaties waar de unieke ID van de artiest niet bekend is, maar de naam wel. Bij het verwijderen van een artiest, worden ook gelijk alle bijhorende cd's en de daarbijhorende reviews verwijderd.
 
