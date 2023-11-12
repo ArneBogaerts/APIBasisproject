@@ -12,6 +12,9 @@ def get_artist(db: Session, artist_id: int):
 def get_artists(db: Session, skip: int = 0, limit: int = 100):
     return db.query(models.Artist).order_by(models.Artist.id).offset(skip).limit(limit).all()
 def create_artist(db: Session, artist: schemas.ArtistBase):
+    existing_artist = db.query(models.Artist).filter(models.Artist.name == artist.name).first()
+    if existing_artist:
+        raise HTTPException(status_code=400, detail="Artist already exists")
     db_artist = models.Artist(**artist.dict())
     db.add(db_artist)
     db.commit()
@@ -32,6 +35,9 @@ def create_review(db: Session, review: schemas.ReviewCreate):
     return db_review
 
 def create_cd(db: Session, cd: schemas.CDCreate):
+    existing_cd = db.query(models.CD).filter(models.CD.title == cd.title).first()
+    if existing_cd:
+        raise HTTPException(status_code=400, detail="CD already exists")
     artist = db.query(models.Artist).filter(models.Artist.name == cd.artist_name).first()
     if not artist:
         raise HTTPException(status_code=404, detail=f"Artist with name {cd.artist_name} not found")
