@@ -82,12 +82,14 @@ Dit endpoint maakt het mogelijk om een nieuwe CD toe te voegen aan de database. 
 
 ![POST cds](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/35f02cdd-bdfd-4060-8792-e7db80075750)
 ![POST cds 404](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/4176fdde-2eb6-4701-8061-c71336a719ec)
+![CD allready exists](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/1f89a415-de30-460b-bb56-c4d4cb7fb02d)
 
 ### Data toevoegen:
 
 * Bij een POST-verzoek ontvangt het endpoint gegevens over een nieuwe CD, waaronder de titel en de naam van de artiest.
 * De API zoekt eerst naar de artiest in de database. Als de artiest niet gevonden wordt, geeft het een **404-foutmelding** terug met de melding dat de artiest niet gevonden is.
 * Als de artiest wel bestaat, wordt de nieuwe cd aangemaakt en aan de database toegevoegd met de meegegeven titel en de ID van de gevonden artiest.
+* Ook kan je zien dat als een cd al bestaat, deze niet opnieuw zal aangemaakt worden. Het geeft dan een **400-foutmelding** terug met de melding **CD already exists**. En vervolgens word deze dus ook niet aangemaakt.
 
 ### Request:
 
@@ -127,12 +129,14 @@ Dit endpoint biedt toegang tot de lijst van artiesten in de database. Het stelt 
 Dit endpoint maakt het mogelijk om een nieuwe artiest toe te voegen aan de database. Het is ontworpen om de lijst van artiesten in de database uit te breiden.
 
 ![POST artist](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/653fcbe8-1913-4a64-b367-e840e70732a1)
+![POST artist allready exists](https://github.com/ArneBogaerts/APIBasisproject/assets/113974569/82106135-47e7-4c3b-ba64-cecb03c8195a)
 
 ### Data toevoegen:
 
 * Bij een POST-verzoek ontvangt het endpoint gegevens van een nieuwe artiest, de naam.
 * Deze informatie wordt gebruikt om een nieuw artiest-object in de database aan te maken.
 * Het is belangrijk dat de naam van de artiest uniek is om duplicaten in de database te voorkomen.
+* Om duplicaten te voorkomen is er ook een veiligheid ingebouwt. Als er een artist wordt toegevoegd die al bestaat krijg je een **400-foutmelding** terug met **Artist already exists**, en vervolgens wordt deze dus ook niet aangemaakt.
 
 ### Request:
 
